@@ -29,15 +29,17 @@
 HardwareSerial SerialLora(D0, D1);
 
 // AppKey and AppEUI.
-const char appKey[] = "0123456789abcdef0123456789abcdef";
-const char appEUI[] = "0101010101010101";
+const char appKey[] = "2b7e151628aed2a6abf7158809cf4f3d";
+const char appEUI[] = "0000000000000000";
 
 // Data send
-char frameTx[] = "Hello world!";
+char frameTx[] = "Hello!";
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.setRx(PA10);
+  Serial.setTx(PA9);
+  Serial.begin(115200);
   Serial.println("-- LoRaWAN OTAA sketch --");
 
   // Enable the USI module and set the radio band.
